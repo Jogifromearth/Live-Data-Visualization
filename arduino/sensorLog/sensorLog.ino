@@ -19,12 +19,13 @@
 #include "Adafruit_APDS9960.h"
 Adafruit_APDS9960 apds;
 
-int vrX = A0;
+//Joystick pins
+int vrX = A0; 
 int vrY = A1;
 
-int x = 492;
-int y = 517;
-int sw = 0;
+int x = 492; //x value of the joystick
+int y = 517; //y default-value of the joystick
+int sw = 0; // switch button default-value 
 
 void setup() {
   Serial.begin(115200);
