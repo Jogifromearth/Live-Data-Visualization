@@ -14,7 +14,7 @@ let dataArray = [{
     }
 }];
 
-const useMouse = true;
+const useMouse = false; //true for using mouse, false for using joystick
 
 
 ws.onopen = function (event) {
@@ -55,9 +55,14 @@ function draw() {
         if (brightness < 1) {
             brightness = 1;
         }
+        //Mapping joystick values to canvas size
+        let x = map(element.joystick.x, 0, 1023, 0, width);
+        let y = map(element.joystick.y, 0, 1023, 0, height);
 
-        let x = element.joystick.x;
-        let y = element.joystick.y;
+        if (useMouse) {
+            x = element.joystick.x;
+            y = element.joystick.y;
+        }
 
 
         if (element.joystick.sw === 0) {

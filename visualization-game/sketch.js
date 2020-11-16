@@ -14,7 +14,7 @@ let sensorData = [{
     }
 }];
 
-const useMouse = true; //true for using mouse, false for using joystick
+const useMouse = false; //true for using mouse, false for using joystick
 
 let targetData = [{
     x: 150,
@@ -166,6 +166,12 @@ function draw() {
         //Mapping joystick values to canvas size
         let x = map(element.joystick.x, 0, 1023, 0, width);
         let y = map(element.joystick.y, 0, 1023, 0, height);
+
+        if (useMouse) {
+            x = element.joystick.x;
+            y = element.joystick.y;
+        }
+
 
         //Drawing the data on the canvas
         if (element.joystick.sw === 0) {
